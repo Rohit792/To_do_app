@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:to_do_app/feature/splash/presentation/splash_Screen.dart';
 
@@ -41,7 +40,6 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: const [
         // THIS CLASS WILL BE ADDED LATER
         // A class which loads the translations from JSON files
-        AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
