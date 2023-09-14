@@ -14,7 +14,7 @@ class HomeRepositoryImpl extends HomeRepository {
       DatabaseHelper.columnCategoryId: categoryId
     };
     ToDo todo = ToDo.fromMap(row);
-    final id = await dbHelper.insert(todo);
+    await dbHelper.insert(todo);
   }
 
   @override

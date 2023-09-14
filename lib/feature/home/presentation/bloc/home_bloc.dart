@@ -36,7 +36,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     final getAllRows = await homeRepository.getAllData(tabPosition.toString());
 
     todoList.clear();
-    getAllRows.forEach((row) => todoList.add(ToDo.fromMap(row)));
+    for (var row in getAllRows) {
+      todoList.add(ToDo.fromMap(row));
+    }
 
     emit(GetAllDataState(status: Status.completed, statusMessage: 'completed'));
   }
