@@ -1,7 +1,7 @@
 
 # To Do Application 
 
-This is the sample Application to demonstrate the Clean architecture and user of flutter blocConsumer.
+This is the sample Application to demonstrate the Clean architecture and use of flutter blocConsumer.
 
 
 
