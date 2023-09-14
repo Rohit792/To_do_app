@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_app/error/error_screen.dart';
@@ -8,6 +6,7 @@ import 'package:to_do_app/feature/home/presentation/bloc/home_bloc.dart';
 import 'package:to_do_app/feature/home/presentation/widgets/category_button.dart';
 import 'package:to_do_app/feature/home/presentation/widgets/radio_button.dart';
 import 'package:to_do_app/injection_container.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 enum SingingCharacter { today, tomorrow, upcomming }
 
@@ -24,7 +23,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('To Do List'),
+        title: Text(AppLocalizations.of(context).appTitle),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 22),
@@ -70,7 +69,7 @@ class HomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     CatogoryButton(
-                      title: 'Today',
+                      title: AppLocalizations.of(context).str_btn_today,
                       tabPossition: 0,
                       isSelected: _homeBloc.tabPosition == 0 ? true : false,
                       onTap: (value) {
@@ -80,7 +79,7 @@ class HomeScreen extends StatelessWidget {
                       },
                     ),
                     CatogoryButton(
-                      title: 'Tomorrow',
+                      title: AppLocalizations.of(context).str_btn_tomorrow,
                       tabPossition: 1,
                       isSelected: _homeBloc.tabPosition == 1 ? true : false,
                       onTap: (value) {
@@ -90,7 +89,7 @@ class HomeScreen extends StatelessWidget {
                       },
                     ),
                     CatogoryButton(
-                      title: 'Upcoming',
+                      title: AppLocalizations.of(context).str_btn_upcoming,
                       tabPossition: 2,
                       isSelected: _homeBloc.tabPosition == 2 ? true : false,
                       onTap: (value) {
@@ -103,7 +102,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 Expanded(
                   child: _homeBloc.todoList.isEmpty
-                      ? ErrorPage()
+                      ? const ErrorPage()
                       : ListView.builder(
                           itemCount: _homeBloc.todoList.length,
                           itemBuilder: (context, index) {
@@ -132,7 +131,7 @@ class HomeScreen extends StatelessWidget {
                                                 bottom: 8),
                                             child: Text(
                                               '${listData.name}',
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   fontWeight: FontWeight.bold),
                                             ),
                                           ),
@@ -190,7 +189,7 @@ class HomeScreen extends StatelessWidget {
         builder: (BuildContext context) {
           return AlertDialog(
             scrollable: true,
-            title: const Text('Add new record'),
+            title: Text(AppLocalizations.of(context).str_btn_addNewRecord),
             content: Padding(
               padding: const EdgeInsets.all(0.0),
               child: Form(
@@ -198,16 +197,17 @@ class HomeScreen extends StatelessWidget {
                   children: <Widget>[
                     TextFormField(
                       controller: _homeBloc.nameController,
-                      decoration: const InputDecoration(
-                        labelText: 'Name',
-                        icon: Icon(Icons.account_box),
+                      decoration: InputDecoration(
+                        labelText: AppLocalizations.of(context).str_btn_name,
+                        icon: const Icon(Icons.account_box),
                       ),
                     ),
                     TextFormField(
                       controller: _homeBloc.discriptionController,
-                      decoration: const InputDecoration(
-                        labelText: 'Discription',
-                        icon: Icon(Icons.data_array),
+                      decoration: InputDecoration(
+                        labelText:
+                            AppLocalizations.of(context).str_btn_discription,
+                        icon: const Icon(Icons.data_array),
                       ),
                     ),
                     RadioCategoryButton(currentTap: _homeBloc.tabPosition),
@@ -217,7 +217,7 @@ class HomeScreen extends StatelessWidget {
             ),
             actions: [
               ElevatedButton(
-                  child: const Text("Submit"),
+                  child: Text(AppLocalizations.of(context).str_btn_submit),
                   onPressed: () {
                     if (id != null) {
                       _homeBloc.add(UpdateDataEvent(

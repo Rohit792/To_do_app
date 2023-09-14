@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:to_do_app/feature/splash/presentation/splash_Screen.dart';
 
 import '../app/app_rountes.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
@@ -38,14 +39,12 @@ class MyApp extends StatelessWidget {
 
       // These delegates make sure that the localization data for the proper language is loaded
       localizationsDelegates: const [
-        // THIS CLASS WILL BE ADDED LATER
-        // A class which loads the translations from JSON files
+        AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
-
-        // FormBuilderLocalizations.delegate
       ],
+
       // Returns a locale which will be used by the app
       localeResolutionCallback: (locale, supportedLocales) {
         // Check if the current device locale is supported

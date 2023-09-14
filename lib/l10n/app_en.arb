@@ -1,0 +1,17 @@
+{
+  "appTitle": "To Do App",
+  "str_loading": "Loading",
+  "str_btn_tomorrow": "Tomorrow",
+  "str_btn_today": "Today",
+  "str_btn_upcoming": "Upcoming",
+  "str_btn_addNewRecord":"Add new record",
+  "str_btn_name":"Name",
+  "str_btn_discription":"Discription",
+  "str_btn_addNewRecord":"Add new record",
+  "str_btn_discription":"Discription",
+  "str_btn_submit": "Submit",
+
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_app/feature/home/presentation/pages/home_screen.dart';
 
 import '../application/splash_cubit.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SplashScreen extends StatelessWidget {
   static const String routeName = '/';
@@ -17,9 +18,9 @@ class SplashScreen extends StatelessWidget {
                 Navigator.pushReplacementNamed(context, HomeScreen.routeName);
               }
             },
-            child: const Center(
+            child: Center(
               child: CircularProgressIndicator(
-                semanticsLabel: "Loading",
+                semanticsLabel: AppLocalizations.of(context).str_loading,
               ),
             )));
   }
